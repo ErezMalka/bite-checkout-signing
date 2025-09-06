@@ -1,0 +1,67 @@
+# Supabase Local Development Configuration
+
+[project]
+# Project ID from Supabase Dashboard
+project_id = "bite-checkout-signing"
+
+[api]
+# API URL and port
+port = 54321
+# Schemas to expose in the API
+schemas = ["public", "storage"]
+# Extra schemas to add to the search_path
+extra_search_path = ["public", "extensions"]
+# Maximum rows returned
+max_rows = 1000
+
+[db]
+# Database port
+port = 54322
+# Major version of PostgreSQL
+major_version = 15
+# Database connection pool settings
+pool_size = 10
+
+[studio]
+# Studio port
+port = 54323
+# Enable Studio
+enabled = true
+
+[inbucket]
+# Email testing service port
+port = 54324
+# Enable email testing
+enabled = true
+
+[storage]
+# Storage port  
+port = 54325
+# File size limit in bytes (5MB)
+file_size_limit = 5242880
+
+[auth]
+# Auth settings
+site_url = "http://localhost:3000"
+# Additional redirect URLs
+additional_redirect_urls = ["http://localhost:3000/auth/callback"]
+# JWT expiry time
+jwt_expiry_limit = 3600
+
+# Email auth
+[auth.email]
+enable_signup = true
+double_confirm_changes = false
+enable_confirmations = false
+
+# SMS auth
+[auth.sms]
+enable_signup = false
+enable_confirmations = false
+
+# External OAuth providers (configure as needed)
+[auth.external.google]
+enabled = false
+client_id = ""
+secret = ""
+redirect_uri = "http://localhost:54321/auth/v1/callback"
